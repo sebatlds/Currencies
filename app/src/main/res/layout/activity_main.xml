@@ -39,7 +39,6 @@
             android:layout_marginTop="312dp"
             android:text="@string/ver_valor"
             android:textColor="@color/white"
-            android:background="@drawable/border"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             tools:layout_editor_absoluteX="161dp"/>
         <Button
@@ -49,7 +48,6 @@
             android:layout_marginTop="312dp"
             android:text="@string/calcular_valores"
             android:textColor="@color/white"
-            android:background="@drawable/border"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             tools:layout_editor_absoluteX="161dp"/>
     </LinearLayout>

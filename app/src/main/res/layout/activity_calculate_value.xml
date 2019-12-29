@@ -17,16 +17,38 @@
             android:layout_height="wrap_content"
             android:text="Pagina para calcular valores"
             android:textAlignment="center"/>
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </GridLayout>
-        <Button
-            android:id="@+id/backCalculate"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border"
-            android:text="@string/volver"
+            android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/origen"/>
+            <Spinner
+                android:id="@+id/spinnerOrigen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/destino"/>
+            <Spinner
+                android:id="@+id/spinnerDestino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/Calculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calcular_valores"
             android:textColor="@color/white"
             android:textSize="25dp"
             tools:layout_editor_absoluteX="83dp"

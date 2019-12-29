@@ -17,6 +17,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pagina para mostrar valores con base en dolares"
+                android:layout_columnSpan="3"
+                android:textAlignment="center"/>
+            <SearchView
+                android:id="@+id/searchValues"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="InvalidId" />
+
             <GridLayout
                 android:id="@+id/gridValue"
                 android:layout_width="match_parent"
@@ -26,12 +38,6 @@
                 android:layout_marginTop="10dp"
                 android:padding="5dp"
                 android:columnCount="3">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Pagina para mostrar valores con base en dolares"
-                    android:layout_columnSpan="3"
-                    android:textAlignment="center"/>
 
            </GridLayout>
         </LinearLayout>

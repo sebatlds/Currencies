@@ -64,6 +64,19 @@ class CurrenciesValue : AppCompatActivity() {
                     var rpta: jsonResponse? = response.body()
                     var listConversion: List<Conversion>? = rpta?.result?.conversion
                     if (listConversion != null) {
+                        grid?.setPadding(5,5,5,5)
+                        var textViewTitleSiglas = TextView(context)
+                        var textViewTitleCurrencie = TextView(context)
+                        var textViewTitleValue = TextView(context)
+                        textViewTitleSiglas.text = "Siglas"
+                        textViewTitleCurrencie.text = "Nombre de la moneda"
+                        textViewTitleValue.text = "Valor Dolar"
+                        textViewTitleSiglas.setTextSize(15f)
+                        textViewTitleCurrencie.setTextSize(15f)
+                        textViewTitleValue.setTextSize(15f)
+                        grid?.addView(textViewTitleSiglas)
+                        grid?.addView(textViewTitleCurrencie)
+                        grid?.addView(textViewTitleValue)
                         for (item in listConversion) {
                             var textviewTo  = TextView(context)
                             var textviewRate  = TextView(context)
@@ -79,7 +92,6 @@ class CurrenciesValue : AppCompatActivity() {
                         }
                     }
                 }
-
             }
             override fun onFailure(call: Call<jsonResponse>, t: Throwable) {
                 if (t != null) {
@@ -95,7 +107,6 @@ class CurrenciesValue : AppCompatActivity() {
                         "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> aceptar() })
                     alert.show()
                 }
-
             }
         })
     }
