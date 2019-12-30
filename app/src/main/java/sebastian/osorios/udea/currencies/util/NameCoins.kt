@@ -2,7 +2,7 @@ package sebastian.osorios.udea.currencies.util
 
 class NameCoins {
 
-    fun selectName(siglas: String): String? {
+    fun selectName(siglas: String): String {
         when (siglas) {
             "AED" -> {
                 return "Dírham"
@@ -413,7 +413,7 @@ class NameCoins {
                 return "Chelín ugandés"
             }
             "USD" -> {
-                return "Dolar"
+                return "Dolar Americano"
             }
             "UYU" -> {
                 return "Peso uruguayo"
@@ -853,7 +853,7 @@ class NameCoins {
             "Chelín ugandés" -> {
                 nameCurrenci = "UGX"
             }
-            "Dolar" -> {
+            "Dolar americano" -> {
                 nameCurrenci = "USD"
             }
             "Peso uruguayo" -> {
@@ -886,7 +886,7 @@ class NameCoins {
 
     fun getNamesCurrencies() : Array<String>{
 
-        return arrayOf("Dírham","Afgani" ,"Lek" ,"Dram armenio" ,"Kwanza angoleño" ,"Peso argentino","Dólar australiano" ,"Florín arubano"
+        return arrayOf("Afgani","Dolar americano","Dírham","Lek" ,"Dram armenio" ,"Kwanza angoleño" ,"Peso argentino","Dólar australiano" ,"Florín arubano"
         ,"Manat azerbayano","Marco de Bosnia y Herzegovina", "Dólar de las Barbados","Taka de Bangladés" ,"Leva búlgaro","Dinar de Baréin" ,
         "Franco burundés","Dólar bermudeño" ,"Dólar de Brunei" ,"Boliviano" ,"Real brasileño","Dólar de las Bahamas" ,"Bitcoin",
         "Gultrum butanés" ,"Pula de Botsuana","Rublo bielorruso","Dólar beliceño" ,"Dólar canadiense","Franco congoleño","Franco suizo",

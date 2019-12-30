@@ -4,10 +4,9 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_calculate_value.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import sebastian.osorios.udea.currencies.interfaces.ApiService
 import sebastian.osorios.udea.currencies.models.jsonResponse
 import sebastian.osorios.udea.currencies.util.NameCoins
+
 
 class CalculateValue : AppCompatActivity() {
 
@@ -28,25 +28,29 @@ class CalculateValue : AppCompatActivity() {
         setContentView(R.layout.activity_calculate_value)
         var from: String
         var dst: String
+        var value : String
         var nameCoins: NameCoins = NameCoins()
-        var currencies: Array<String> = nameCoins.getNamesCurrencies()
+        var currencies: Array< String> = nameCoins.getNamesCurrencies()
+        currencies = orderArray(currencies)
         spinnerFrom = findViewById(R.id.spinnerOrigen)
         spinnerDst = findViewById(R.id.spinnerDestino)
+
         var arrayAdapter: ArrayAdapter<String> =
             ArrayAdapter<String>(this, R.layout.spinner_item_currencies, currencies)
         spinnerFrom.setAdapter(arrayAdapter)
         spinnerDst.setAdapter(arrayAdapter)
 
         Calculate.setOnClickListener {
+            val tableLayout = findViewById<TableLayout>(R.id.linearLayoutResult)
+            tableLayout.removeAllViews()
             dst = nameCoins.selectCurrencie(spinnerDst.getSelectedItem().toString())
             from = nameCoins.selectCurrencie(spinnerFrom.getSelectedItem().toString())
             getValueChange(from, dst, this)
+
         }
     }
 
     private fun getValueChange(from: String, dst: String, context: Context) {
-        val froma = from.trim()
-        val dsta = dst.trim()
         val alert = AlertDialog.Builder(context)
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.devises.zone/v1/quotes/")
@@ -54,7 +58,7 @@ class CalculateValue : AppCompatActivity() {
             .build()
         val service = retrofit.create(ApiService::class.java)
 
-        service.getChangeValues(froma,dsta).enqueue(object : Callback<jsonResponse> {
+        service.getChangeValues(from,dst).enqueue(object : Callback<jsonResponse> {
             override fun onResponse(call: Call<jsonResponse>, response: Response<jsonResponse>) {
                 if (response.code() >= 400) {
                     alert.setTitle("Error")
@@ -64,8 +68,7 @@ class CalculateValue : AppCompatActivity() {
                     alert.show()
                 }else{
                     var respons = response.body()
-                    print(respons)
-
+                    viewResult(context, respons)
                 }
             }
             override fun onFailure(call: Call<jsonResponse>, t: Throwable) {
@@ -73,21 +76,84 @@ class CalculateValue : AppCompatActivity() {
                         alert.setTitle("Error")
                         alert.setMessage(t.message.toString())
                         alert.setPositiveButton(
-                            "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> aceptar() })
+                            "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> backActivity() })
                         alert.show()
                     }else{
                         alert.setTitle("Error")
                         alert.setMessage("No se pudo procesar la solicitud")
                         alert.setPositiveButton(
-                            "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> aceptar() })
+                            "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> backActivity() })
                         alert.show()
                     }
             }
         })
 
     }
-    private fun aceptar() {
+    private fun backActivity() {
         val intento = Intent(this, MainActivity ::class.java)
         startActivity(intento)
+    }
+
+    private fun viewResult(context: Context, respons: jsonResponse? ){
+        val nameCoins : NameCoins = NameCoins()
+        val tableLayout : TableLayout = findViewById(R.id.linearLayoutResult)
+        var textViewTitleSource = TextView(context)
+        var textViewTitleTarget = TextView(context)
+        var textViewSource = TextView(context)
+        var textViewTarget = TextView(context)
+        var textViewValue = TextView(context)
+        var textViewQuantity = TextView(context)
+        val tableRow0 = TableRow(context)
+        val tableRow1 = TableRow(context)
+        val tableRow2 = TableRow(context)
+        textViewTitleSource.text = "A"
+        textViewTitleTarget.text = "De"
+        textViewQuantity.setTextSize(20f)
+        textViewValue.setTextSize(20f)
+        textViewTarget.setTextSize(20f)
+        textViewSource.setTextSize(20f)
+        textViewTitleSource.setTextSize(25f)
+        textViewTitleTarget.setTextSize(25f)
+        textViewQuantity.setPadding(5,5,5,5)
+        textViewValue.setPadding(5,5,5,5)
+        textViewTarget.setPadding(5,5,5,5)
+        textViewSource.setPadding(5,5,5,5)
+        textViewTitleSource.setPadding(5,5,5,5)
+        textViewTitleTarget.setPadding(5,5,5,5)
+        var result  = respons?.result
+        if (result != null) {
+            textViewTarget.text = nameCoins.selectName(result.source)
+        }
+        if (result != null) {
+            textViewSource.text = nameCoins.selectName(result.target)
+        }
+        textViewValue.text = result?.value.toString()
+        textViewQuantity.text = result?.quantity.toString()
+        tableLayout.setPadding(5,5,5,5)
+        tableRow0.setPadding(5,5,5,5)
+        tableRow1.setPadding(5,5,5,5)
+        tableRow2.setPadding(5,5,5,5)
+        tableRow0.addView(textViewTitleTarget)
+        tableRow0.addView(textViewTitleSource)
+        tableRow1.addView(textViewTarget)
+        tableRow1.addView(textViewSource)
+        tableRow2.addView(textViewQuantity)
+        tableRow2.addView(textViewValue)
+        tableLayout.addView(tableRow0)
+        tableLayout.addView(tableRow1)
+        tableLayout.addView(tableRow2)
+    }
+
+    private fun orderArray(array : Array<String>):Array<String>{
+        for (i in 0 until array.size - 1) {
+            for (j in i + 1 until array.size) {
+                if (array[i] > array[j]) { //Intercambiamos valores
+                    val variableauxiliar: String = array[i]
+                    array[i] = array[j]
+                    array[j] = variableauxiliar
+                }
+            }
+        }
+        return array
     }
 }

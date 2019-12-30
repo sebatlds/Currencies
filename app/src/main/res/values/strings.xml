@@ -3,6 +3,7 @@
     <string name="calcular_valores">Calcular</string>
     <string name="ver_valor">Valores</string>
     <string name="volver">Volver</string>
-    <string name="origen">Origen</string>
-    <string name="destino">Destino</string>
+    <string name="origen">De</string>
+    <string name="destino">A</string>
+    <string name="cantidad">Cantidad a convertir</string>
 </resources>

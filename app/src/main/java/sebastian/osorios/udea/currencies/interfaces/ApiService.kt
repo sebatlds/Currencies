@@ -3,6 +3,7 @@ package sebastian.osorios.udea.currencies.interfaces
 import retrofit2.http.GET
 import retrofit2.Call
 import retrofit2.http.Path
+import retrofit2.http.Query
 import sebastian.osorios.udea.currencies.models.*
 
 interface ApiService {

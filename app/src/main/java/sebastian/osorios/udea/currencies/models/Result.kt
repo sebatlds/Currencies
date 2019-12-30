@@ -10,7 +10,7 @@ data class Result (
     val updated : String,
     val source : String,
     val target : String,
-    val value : Int,
-    val quantity : Int,
-    val amount : Int
+    val value : Double,
+    val quantity : Double,
+    val amount : Double
 )
