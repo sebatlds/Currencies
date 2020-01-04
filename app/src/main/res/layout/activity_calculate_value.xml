@@ -13,23 +13,30 @@
         android:padding="5dp"
         tools:ignore="MissingConstraints"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pagina para calcular valores"
-            android:textAlignment="center"/>
+            android:text="@string/title_calculate"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
-            <TextView android:layout_width="wrap_content"
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/origen"/>
+                android:text="@string/origen"
+                android:textStyle="bold" />
             <Spinner
                 android:id="@+id/spinnerOrigen"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
 
         </LinearLayout>
         <LinearLayout
@@ -37,13 +44,18 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
-            <TextView android:layout_width="wrap_content"
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/destino"/>
+                android:text="@string/destino"
+                android:gravity="center"
+                android:textStyle="bold" />
             <Spinner
                 android:id="@+id/spinnerDestino"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
         </LinearLayout>
         <TableLayout
             android:id="@+id/linearLayoutResult"

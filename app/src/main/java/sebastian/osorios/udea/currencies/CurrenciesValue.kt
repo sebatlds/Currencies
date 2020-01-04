@@ -94,19 +94,11 @@ class CurrenciesValue : AppCompatActivity() {
                 }
             }
             override fun onFailure(call: Call<jsonResponse>, t: Throwable) {
-                if (t != null) {
                     alert.setTitle("Error")
-                    alert.setMessage(t.message.toString())
+                    alert.setMessage("Se presénto un error al realizar la consulta, revice su conexion a internet")
                     alert.setPositiveButton(
                         "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> aceptar() })
                     alert.show()
-                }else{
-                    alert.setTitle("Error")
-                    alert.setMessage("No se pudo procesar la solicitud")
-                    alert.setPositiveButton(
-                        "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> aceptar() })
-                    alert.show()
-                }
             }
         })
     }

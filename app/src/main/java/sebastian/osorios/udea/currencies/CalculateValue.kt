@@ -28,7 +28,6 @@ class CalculateValue : AppCompatActivity() {
         setContentView(R.layout.activity_calculate_value)
         var from: String
         var dst: String
-        var value : String
         var nameCoins: NameCoins = NameCoins()
         var currencies: Array< String> = nameCoins.getNamesCurrencies()
         currencies = orderArray(currencies)
@@ -72,19 +71,11 @@ class CalculateValue : AppCompatActivity() {
                 }
             }
             override fun onFailure(call: Call<jsonResponse>, t: Throwable) {
-                    if (t != null) {
-                        alert.setTitle("Error")
-                        alert.setMessage(t.message.toString())
-                        alert.setPositiveButton(
-                            "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> backActivity() })
-                        alert.show()
-                    }else{
-                        alert.setTitle("Error")
-                        alert.setMessage("No se pudo procesar la solicitud")
-                        alert.setPositiveButton(
-                            "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> backActivity() })
-                        alert.show()
-                    }
+                alert.setTitle("Error")
+                alert.setMessage("Se presénto un error al realizar la consulta, revice su conexion a internet")
+                alert.setPositiveButton(
+                        "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> backActivity() })
+                alert.show()
             }
         })
 
