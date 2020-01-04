@@ -33,12 +33,10 @@ class CurrenciesValue : AppCompatActivity() {
         grid = findViewById(R.id.gridValue)
         linear = findViewById(R.id.linearLayout)
 
-    }
-
-    private fun printValues() {
 
 
     }
+
 
 
     fun getCurrencies(currenciesValue: CurrenciesValue) {
