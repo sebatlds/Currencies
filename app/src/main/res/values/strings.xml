@@ -7,6 +7,6 @@
     <string name="destino">A</string>
     <string name="cantidad">Cantidad a convertir</string>
     <string name="title_calculate">Seleccione las divisas a calcular</string>
-    <string name="title_values">Valor de las divisas con base en Dolares</string>
-    <string name="texto">Currencies es una aplicacion que permite conocer el valor de cada moneda en Dolares, y ademas permite calcular el cambio de divisas de cualquier moneda del mundo.</string>
+    <string name="title_values">Valor de las divisas con base en Dólares</string>
+    <string name="texto">Currencies es una aplicación que permite conocer el valor de cada moneda en dólares, y además permite calcular el cambio de divisas de cualquier moneda del mundo.</string>
 </resources>

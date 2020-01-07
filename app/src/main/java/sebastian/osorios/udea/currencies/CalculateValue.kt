@@ -62,7 +62,7 @@ class CalculateValue : AppCompatActivity() {
             override fun onResponse(call: Call<jsonResponse>, response: Response<jsonResponse>) {
                 if (response.code() >= 400) {
                     alert.setTitle("Error")
-                    alert.setMessage("Se presento un error con el servicio. \n Codigo de Error = " + response.code())
+                    alert.setMessage("Se presentó un error con el servicio. \n Codigo de Error = " + response.code())
                     alert.setPositiveButton(
                         "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> null })
                     alert.show()
@@ -73,7 +73,7 @@ class CalculateValue : AppCompatActivity() {
             }
             override fun onFailure(call: Call<jsonResponse>, t: Throwable) {
                 alert.setTitle("Error")
-                alert.setMessage("Se presénto un error al realizar la consulta, revice su conexion a internet")
+                alert.setMessage("Se presentó un error al realizar la consulta, revise su conexión a internet")
                 alert.setPositiveButton(
                         "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> backActivity() })
                 alert.show()
@@ -110,8 +110,8 @@ class CalculateValue : AppCompatActivity() {
         textViewValue.setPadding(5,5,5,5)
         textViewTarget.setPadding(5,5,5,5)
         textViewSource.setPadding(5,5,5,5)
-        textViewTitleSource.setPadding(5,5,5,5)
-        textViewTitleTarget.setPadding(5,5,5,5)
+        textViewTitleSource.setPadding(8,8,8,8)
+        textViewTitleTarget.setPadding(8,8,8,8)
         var result  = respons?.result
         if (result != null) {
             textViewTarget.text = nameCoins.selectName(result.source)

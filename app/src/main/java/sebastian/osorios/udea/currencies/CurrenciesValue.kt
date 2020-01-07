@@ -54,7 +54,7 @@ class CurrenciesValue : AppCompatActivity() {
             override fun onResponse(call: Call<jsonResponse>, response: Response<jsonResponse>) {
                 if(response.code() >= 400){
                     alert.setTitle("Error")
-                    alert.setMessage("Se presento un error con el servicio. \n Codigo de Error = "+response.code())
+                    alert.setMessage("Se presentó un error con el servicio. \n Codigo de Error = "+response.code())
                     alert.setPositiveButton(
                         "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> aceptar() })
                     alert.show()
@@ -72,6 +72,9 @@ class CurrenciesValue : AppCompatActivity() {
                         textViewTitleSiglas.setTextSize(15f)
                         textViewTitleCurrencie.setTextSize(15f)
                         textViewTitleValue.setTextSize(15f)
+                        textViewTitleCurrencie.setPadding(5,5,5,5)
+                        textViewTitleSiglas.setPadding(5,5,5,5)
+                        textViewTitleValue.setPadding(5,5,5,5)
                         grid?.addView(textViewTitleSiglas)
                         grid?.addView(textViewTitleCurrencie)
                         grid?.addView(textViewTitleValue)
@@ -93,7 +96,7 @@ class CurrenciesValue : AppCompatActivity() {
             }
             override fun onFailure(call: Call<jsonResponse>, t: Throwable) {
                     alert.setTitle("Error")
-                    alert.setMessage("Se presénto un error al realizar la consulta, revice su conexion a internet")
+                    alert.setMessage("Se presentó un error al realizar la consulta, revise su conexión a internet")
                     alert.setPositiveButton(
                         "Confirmar", DialogInterface.OnClickListener { dialogo1, id -> aceptar() })
                     alert.show()
