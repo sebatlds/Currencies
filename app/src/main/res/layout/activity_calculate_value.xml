@@ -67,6 +67,14 @@
 
 
         </TableLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+        </LinearLayout>
         <Button
             android:id="@+id/Calculate"
             android:layout_width="match_parent"

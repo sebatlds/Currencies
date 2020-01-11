@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_calculate_value.*
@@ -98,6 +99,10 @@ class CalculateValue : AppCompatActivity() {
         val tableRow0 = TableRow(context)
         val tableRow1 = TableRow(context)
         val tableRow2 = TableRow(context)
+        tableRow0.setHorizontalGravity(Gravity.CENTER)
+        tableRow1.setHorizontalGravity(Gravity.CENTER)
+        tableRow2.setHorizontalGravity(Gravity.CENTER)
+        textViewTitleSource.gravity
         textViewTitleSource.text = "A"
         textViewTitleTarget.text = "De"
         textViewQuantity.setTextSize(20f)
@@ -120,11 +125,11 @@ class CalculateValue : AppCompatActivity() {
             textViewSource.text = nameCoins.selectName(result.target)
         }
         textViewValue.text = result?.value.toString()
-        textViewQuantity.text = result?.quantity.toString()
-        tableLayout.setPadding(5,5,5,5)
-        tableRow0.setPadding(5,5,5,5)
-        tableRow1.setPadding(5,5,5,5)
-        tableRow2.setPadding(5,5,5,5)
+        textViewQuantity.text = result?.quantity.toString().substring(0,1)
+        tableLayout.setPadding(10,10,10,10)
+        tableRow0.setPadding(10,10,10,10)
+        tableRow1.setPadding(10,10,10,10)
+        tableRow2.setPadding(10,10,10,10)
         tableRow0.addView(textViewTitleTarget)
         tableRow0.addView(textViewTitleSource)
         tableRow1.addView(textViewTarget)
