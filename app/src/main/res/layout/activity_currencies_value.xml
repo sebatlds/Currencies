@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sebastian.osorios.udea.currencies.CurrenciesValue"
+    android:padding="16dp"
+    android:background="@color/colorPrimaryDark">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:layout_columnSpan="3"
+                android:text="@string/title_values"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                android:verticalScrollbarPosition="defaultPosition" />
+
+            <GridLayout
+                android:id="@+id/gridValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                </GridLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

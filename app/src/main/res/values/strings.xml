@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Currencies</string>
+    <string name="calcular_valores">Calcular</string>
+    <string name="ver_valor">Valores</string>
+    <string name="volver">Volver</string>
+    <string name="origen">De</string>
+    <string name="destino">A</string>
+    <string name="cantidad">Cantidad a convertir</string>
+    <string name="title_calculate">Seleccione las divisas a calcular</string>
+    <string name="title_values">Valor de las divisas con base en Dólares</string>
+    <string name="texto">Currencies es una aplicación que permite conocer el valor de cada moneda en dólares, y además permite calcular el cambio de divisas de cualquier moneda del mundo.</string>
+</resources>
