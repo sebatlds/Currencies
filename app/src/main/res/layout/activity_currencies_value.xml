@@ -37,7 +37,7 @@
                 android:id="@+id/gridValue"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="15dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
                 android:columnCount="3"
                 android:orientation="horizontal"

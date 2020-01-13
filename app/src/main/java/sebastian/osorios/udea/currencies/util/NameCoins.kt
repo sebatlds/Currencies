@@ -32,7 +32,7 @@ class NameCoins {
                 return "Manat azerbayano"
             }
             "BAM" -> {
-                return "Marco de Bosnia y Herzegovina"
+                return "Marco de Bosnia H"
             }
             "BBD" -> {
                 return "Dólar de las Barbados"
@@ -472,7 +472,7 @@ class NameCoins {
             "Manat azerbayano" -> {
                 nameCurrenci = "AZN"
             }
-            "Marco de Bosnia y Herzegovina" -> {
+            "Marco de Bosnia H" -> {
                 nameCurrenci = "BAM"
             }
             "Dólar de las Barbados" -> {
@@ -887,7 +887,7 @@ class NameCoins {
     fun getNamesCurrencies() : Array<String>{
 
         return arrayOf("Afgani","Dolar americano","Dírham","Lek" ,"Dram armenio" ,"Kwanza angoleño" ,"Peso argentino","Dólar australiano" ,"Florín arubano"
-        ,"Manat azerbayano","Marco de Bosnia y Herzegovina", "Dólar de las Barbados","Taka de Bangladés" ,"Leva búlgaro","Dinar de Baréin" ,
+        ,"Manat azerbayano","Marco de Bosnia H", "Dólar de las Barbados","Taka de Bangladés" ,"Leva búlgaro","Dinar de Baréin" ,
         "Franco burundés","Dólar bermudeño" ,"Dólar de Brunei" ,"Boliviano" ,"Real brasileño","Dólar de las Bahamas" ,"Bitcoin",
         "Gultrum butanés" ,"Pula de Botsuana","Rublo bielorruso","Dólar beliceño" ,"Dólar canadiense","Franco congoleño","Franco suizo",
         "Peso chileno","Yuan","Peso colombiano","Colón costarricense","Peso cubano","Escudo de Cabo Verde","Corona checa","Franco yibutiano" ,
