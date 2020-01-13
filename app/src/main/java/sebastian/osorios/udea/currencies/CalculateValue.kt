@@ -23,8 +23,7 @@ class CalculateValue : AppCompatActivity() {
 
     lateinit var spinnerFrom: Spinner
     lateinit var spinnerDst: Spinner
-    //todo falta implemetar la barra de busqueda y cuando se le da aceptar en la alerta que se devuelva de activity y borde a los botones y la lista del spinner
-    //todo hacer un refresh de la pagina
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculate_value)
